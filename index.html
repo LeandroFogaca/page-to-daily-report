@@ -11,54 +11,75 @@
 </head>
 
 <body>
-
-<div id= "page">
-<div id = Header>Relatório de Atividades</div>
-<div id = "form">
-<form name="meu_form">
-
-    <h1>Formulário</h1>
-
-    <p class="maquina">
-    <label class = "classform" for="maquina">Máquina: </label>
-        <input type="text" id="maquinaid" placeholder="EBM xx" required="required" name="maquina" />
-    </p>
-    <p class="descricao">
-        <label for="descricao">Descrição: </label>
-        <input type="text" id="descricaoid" placeholder="Qual era o problema?" name="descricao" />
-    </p>
-    <p>
-        <label for="acao">Ação: </label>
-        <input type="acao" id="acaoid" placeholder="Oque foi executado" name="acao" />
-    </p>
-    <p class="parada">
-        <label for="parada">Downtime: </label>
-        <input type="parada" id="paradaid" placeholder="sim, não ou parcial" name="parada" />
-    </p>
-    <p>
-        <textarea placeholder="Deixe sua opnião"></textarea>
-    </p>
-    <p class="submit">
-        <input type="submit" onclick="Enviar();" value="Enviar" />
-    </p>
-
-</form>
-</div>
-
-<div id = report>
-
-<label>alsjdnaksjdkajsdkajsdnkajsd</label>
-
-</div>
+    <script src="script.js"></script>
+    <div id="page">
+        <header id="Header">
+            <h1>Formulários de Atividades</h1>
+        </header>
 
 
+        <div class="grid-container">
 
+            <div class="grid-item">
 
+                <div id="form">
+                <form name="meu_form">
+                    
+                    <h1>Formulário</h1>
 
+                        <p class="entrada">
+                            <label id="lbl" for="maquina">Máquina: </label>
+                            <input type="text" id="maquinaid" placeholder="Qual máquina?" required="required"
+                                name="maquina" />
+                            </p>
+                            <p class="entrada">
+                                <label class="classform" for="ordemservico">OS: </label>
+                                <input type="text" id="ordemservicoid" placeholder="Número da OS" required="required"
+                                name="ordemservico" />
+                            </p>
+                            <p class="entrada">
+                                <label class="classform" for="tag">Tag: </label>
+                                <input type="text" id="tagid" placeholder="Tag?" required="required" name="tag" />
+                            </p>
+                            <p class="entrada">
+                                <label class="classform" for="parada">Downtime: </label>
+                                <input type="text" id="paradaid" placeholder="sim, não ou parcial" name="parada" />
+                            </p>
+                            <p class="entrada">
+                                <label class="classform" for="descricao">Descrição: </label>
+                                <input type="text" id="descricaoid" placeholder="Qual era o problema?" name="descricao" />
+                            </p>
+                            <p class="entrada">
+                                <label class="classform" for="acao">Ação: </label>
+                                <input type="text" id="acaoid" placeholder="O que foi executado" name="acao" />
+                            </p>
+                            <p class="entrada">
+                                <label class="classform" for="observacao">Observação: </label>
+                                <input type="text" id="acaoid" placeholder="O que foi executado" name="acao" />
+                            </p>
+                            
+                            <p class="submit">
+                                <input type="submit" onclick="Enviar();" value="Enviar" />
+                            </p>
 
-
-
-
+                        </form>
+                    </div>
+                        
+                    </div>
+                    
+            <div class="grid-item">
+                
+                <div id=report>
+                    
+                    <label>Relatório diário de Atividades</label>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
 </div>
 </body>
+
 </html>

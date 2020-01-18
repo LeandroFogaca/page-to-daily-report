@@ -1,4 +1,4 @@
-#page{
+#page {
     width: 1000px;
     height: 700px;
     margin-top: 0;
@@ -7,27 +7,37 @@
     margin-right: auto;
 }
 
-#Header{
+#Header {
     width: 1000px;
     height: 100px;
-
+    font-size: 20px;
+    text-align: center;
 }
 
-#form{
-    width: 500px;
-    height: 300;
+#form {
+    width: 50%;
+    height: 400px;
     float: left;
-}
-
-#report{
-    width: 500px;
-    height: 400;
-    float: left;
-}
-
-classeform {
-
+    background-color: rgb(255, 255, 255);
     text-align: left;
+    border-style: solid;
+    border-width: 2px;
+}
 
+.grid-container {
+    display: grid;
+    column-gap: 50px;
+    grid-template-columns: auto auto;
+}
 
+.grid-item {
+    text-align: center;
+}
+
+#report {
+    width: 50%;
+    height: 400px;
+    float: left;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
 }
