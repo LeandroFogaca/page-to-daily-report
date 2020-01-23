@@ -14,14 +14,12 @@
     text-align: center;
 }
 
-#form {
-    width: 50%;
-    height: 400px;
-    float: left;
-    background-color: rgb(255, 255, 255);
-    text-align: left;
-    border-style: solid;
-    border-width: 2px;
+#descricaoid{
+
+    width: 70%;
+    height: 50px;
+    text-align: start;
+
 }
 
 .grid-container {
@@ -31,7 +29,7 @@
 }
 
 .grid-item {
-    text-align: center;
+    
 }
 
 #report {
@@ -40,4 +38,12 @@
     float: left;
     background-color: rgb(255, 255, 255);
     text-align: center;
+}
+
+.entrada {
+
+    text-align: left;
+    font-size: 17px;
+    margin: auto;
+    margin-bottom: 1mm;
 }
