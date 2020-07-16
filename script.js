@@ -1,14 +1,29 @@
+const report = []
+var contador = 0
 
-function criaratividade (maquina, descrição, tempo) {
+
+
+
+
+
+
+function adicionar() {
+
+    let atividade = []
+
+    contador += 1
     
-        return {
-            maquina,
-            descrição,
-            tempo
-        }
-
+    atividade.push(document.getElementById("osnumber").value)
+    atividade.push(document.getElementById("machine").value)
+    atividade.push(document.getElementById("description").value)
+    atividade.push(document.getElementById("action").value)
+    report.push(atividade)
+    
+    
+    document.getElementById("conteudo").innerHTML = report
+    
+    
+    console.log(atividade);
+    console.log(report);
 }
 
-
-console.log(criaratividade("EBM01", "destravado moinho", 2));
-console.log(criaratividade("EBM02", "destravado moinho", 2));
