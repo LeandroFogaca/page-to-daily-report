@@ -1,8 +1,9 @@
 const report = []
-var contador = 0
+var x = 0  //contador de cliques
+var elemento_pai = document.getElementById("conteudo")
 
 function Atividades(os, maq, desc, acao){
-
+    
     this.osnumber = os;
     this.machine = maq;
     this.descricao = desc;
@@ -10,42 +11,50 @@ function Atividades(os, maq, desc, acao){
 }
 
 
-function coleta(){
+function mascara(atividade){
     
-    let atividade = []
-    atividade.push(document.getElementById("osnumber").value)
-    atividade.push(document.getElementById("machine").value)
-    atividade.push(document.getElementById("description").value)
-    atividade.push(document.getElementById("action").value)
+    atividade.osnumber  = `Numero OS: ${atividade.osnumber}`
+    atividade.machine   = `Máquina:   ${atividade.machine}`
+    atividade.descricao = `Descrição: ${atividade.descricao}`
+    atividade.acao      = `Ação:      ${atividade.acao}`
     
-    atividade[0] = `Numero OS: ${atividade[0]}`
-    atividade[1] = `Máquina:   ${atividade[1]}`
-    atividade[2] = `Descrição: ${atividade[2]}`
-    atividade[3] = `Ação:      ${atividade[3]}`
     
-   // console.log(atividade);
-    report.push(atividade)
 }
 
 
 function adicionar() {
     
+    x += 1
     
     let os = document.getElementById("osnumber").value
     let maq = document.getElementById("machine").value
     let desc = document.getElementById("description").value
     let act = document.getElementById("action").value
     
-    a = new Atividades(os,maq,desc,act)
+    eval('var item' + x +'= new Atividades(os,maq,desc,act);');
+    
+    eval('var e_filho' + x + '= document.createElement("p");')
+    msg = `${report[x-1].osnumber}`+"\n"+`${report[x-1].machine}`
+    var texto = document.createTextNode(msg)
+    eval('e_filho'+x).appendChild(texto);
+    elemento_pai.appendChild(eval('e_filho'+x));
+    
+    
+    report.push(eval('item' + x))
+    mascara(report[x-1])
+    console.log(report[x-1]);
+    
+    
+    console.log(msg)
     
     
     
-    //coleta()
     
-    let msg = 'Numero da OS:' + a.os
-    console.log(msg);
-    document.getElementById("conteudo").innerHTML = msg
     
-   
+    
+    
+    //document.getElementById("conteudo").innerHTML = msg
+    
+    
 }
 
