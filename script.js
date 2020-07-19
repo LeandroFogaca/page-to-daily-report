@@ -84,13 +84,19 @@ function adicionar() {
 }
 
 
-function copiar() {
-    
-    textocopiado = $("p")
-    
-    textocopiado.select();
+function copiar(element) {
 
-    document.execCommand('copy');
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($(element).text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+
+    // textocopiado = $('#conteudo')
     
-    console.log(textocopiado);
+    // textocopiado.select();
+
+    // document.execCommand('copy');
+    
+    // console.log(textocopiado);
 }   
