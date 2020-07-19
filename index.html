@@ -1,49 +1,151 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+
+<head>
     <!-- Meta tags Obrigatórias -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=0.1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="D:\MyApplication\Relatorio\node_modules\jquery\src\jquery.js"></script>
     <title>Olá, mundo!</title>
-  </head>
-  <body>
+</head>
 
-      
-      
-      <h1>Daily report</h1>
-      
-      
-      <div class="container">
-          <div class="row">
-              <div class="col-sm">
-                  <form onsubmit=event.preventDefault()>
-                      <div class="form-group">
-                          <label for="osnumber">Ordem de serviço</label>
-                          <input type="text" class="form-control" id="osnumber" placeholder="texto" value="1234">
-                          <label for="machine">Máquina</label>
-                          <input type="text" class="form-control" id="machine" placeholder="texto" value="texto">
-                          <label for="description">Descrição</label>
-                          <input type="text" class="form-control" id="description" placeholder="texto">
-                          <label for="action">Ação</label>
-                          <input type="text" class="form-control" id="action" placeholder="texto">
-                          <button id="add" onclick="adicionar()">Adicionar</button>
+<body>
+
+
+
+    <h1>Daily report</h1>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm">
+                <form onsubmit=event.preventDefault()>
+
+
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <label for="osnumber">Ordem de serviço:</label>
                         </div>
-                    </form>
-                </div>
-                <div class="col-sm" id="conteudo">
-                </div>
+                        <div class="col-5">
+                            <input type="text" class="form-control" id="osnumber" placeholder="texto">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <label for="machine">Máquina</label>
+                        </div>
+                        <div class="col-5">
+                            <input type="text" class="form-control" id="machine" placeholder="texto">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <label for="tag">Tag - causa</label>
+                        </div>
+                        <div class="col-5">
+                            <input type="text" class="form-control" id="tag" placeholder="texto">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <label for="tparada">Tipo de parada</label>
+                        </div>
+
+                        <div class="col-5">
+                            <select class="form-control" id="tparada">
+                                <option>SIM - Manutenção</option>
+                                <option>SIM - Operacional</option>
+                                <option>SIM - Troca de molde</option>
+                                <option>Não - parada programada</option>
+                                <option>Outros</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <label for="inicio" class="col-2 col-form-label">Início</label>
+                        </div>
+                        <div class="col-5">
+                            <input class="form-control" type="datetime-local" value="2020-01-01T13:45:00" id="inicio">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+
+                        <div class="col-sm-4">
+                            <label for="termino" class="col-2 col-form-label">Termino</label>
+                        </div>
+                        <div class="col-5">
+                            <input class="form-control" type="datetime-local" value="2020-01-01T13:45:00" id="termino">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            <label for="description">Descrição da falha</label>
+                        </div>
+
+                        <div class="col-9">
+                            <textarea class="form-control" id="description" rows="3"></textarea>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-sm-4">
+                            <label for="acao">Ação realizada</label>
+                        </div>
+                        <div class="col-9">
+                            <textarea class="form-control" id="acao" rows="3"></textarea>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        
+                        <div class="col-sm-4">
+                            <label for="mat">Material utilizado</label>
+                        </div>
+                        <div class="col-5">
+                            <input type="text" class="form-control" id="mat" placeholder="texto">
+                        </div>
+                    </div>
+                                        
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <button id="add" onclick="adicionar()">Adicionar</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-sm" id="conteudo">
             </div>
         </div>
-        
-        <!-- JavaScript (Opcional) -->
-        <script src="script.js"></script>
+    </div>
+
+    <!-- JavaScript (Opcional) -->
+    <script src="script.js"></script>
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
