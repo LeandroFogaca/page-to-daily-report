@@ -85,7 +85,19 @@ function adicionar() {
 
 
 function copiar(element) {
-
+        // var selection = window.getSelection(), //Get the window selection
+        //     selectData = document.createRange(); //Create a range
+    
+        //     selection.removeAllRanges();  //Clear any currently selected text.
+        //     selectData.selectNodeContents(element); //Add the desired element to the range you want to select.
+        //     selection.addRange(selectData); //Highlight the element (this is the same as dragging your cursor over an element)
+        //     var copyResult = document.execCommand("copy");  //Execute the copy.
+    
+        //     if(copyResult) //was the copy successful?
+        //         selection.removeAllRanges(); //Clear the highlight.
+        //     else
+        //         alert("Your browser does not support clipboard commands, press ctrl+c");
+    
     var $temp = $("<input>");
     $("body").append($temp);
     $temp.val($(element).text()).select();
