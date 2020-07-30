@@ -12,4 +12,17 @@ html{
     align-content: center;
     align-self: center;
     align-self: center;
+<<<<<<< HEAD
+=======
+}
+
+.top{
+    height: 150px;
+    padding-top: 30px;
+}
+
+p{
+    margin-bottom: 5px;
+
+>>>>>>> fdab0c8811d09684f3a8b0a15abfb1aa19fe460b
 }
