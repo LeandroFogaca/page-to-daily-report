@@ -13,3 +13,13 @@ html{
     align-self: center;
     align-self: center;
 }
+
+.top{
+    height: 150px;
+    padding-top: 30px;
+}
+
+p{
+    margin-bottom: 5px;
+
+}

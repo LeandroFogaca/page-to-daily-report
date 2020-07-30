@@ -10,14 +10,26 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script src="D:\MyApplication\Relatorio\node_modules\jquery\src\jquery.js"></script>
-    <title>Olá, mundo!</title>
+    <!-- JQuery -->
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <title>Relatório Diário</title>
 </head>
 
 <body>
 
-<div>
-    <h1>Daily report</h1>
+<div class="container">
+    <div class="row top">
+        <div class="col-sm">
+
+            <h1>Daily report</h1>
+        </div>
+        <div class="col-sm">
+
+            <p>Estatisticas</p>
+
+        </div>
+
+    </div>
     
 </div>
 
@@ -25,7 +37,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm">
+            <div class="col-sm shadow-sm p-3 mb-5 bg-white rounded">
                 <form onsubmit=event.preventDefault()>
 
 
@@ -131,10 +143,10 @@
 
                 </form>
             </div>
-            <div class="col-sm" id="conteudo">
+            <div class="col-sm shadow-sm p-3 mb-5 bg-white rounded" id="conteudo">
             </div>
             <div class="col-2">
-                <button id="copy" onclick="copiar('#conteudo')">Copiar</button>
+                <button id="copy" onclick="copiar()">Copiar</button>
             </div>
         </div>
     </div>

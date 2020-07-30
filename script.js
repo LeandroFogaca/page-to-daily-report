@@ -15,24 +15,45 @@ function Atividades(os, maq, tag, tparada, desc, acao, mat, inicio, termino) {
     this.mat = mat;
     this.inicio = inicio;
     this.termino = termino;
-    this.taxa = ((Date.parse(this.termino) - Date.parse(this.inicio))/1000/60/60).toFixed(2)
+    this.taxa = ((Date.parse(this.termino) - Date.parse(this.inicio)) / 1000 / 60 / 60).toFixed(2)
 }
 
 
 function mascara(atividade) {
 
-    atividade.osnumber = `Numero OS: ${atividade.osnumber}`
-    atividade.machine = `Máquina:   ${atividade.machine}`
-    atividade.tag = `Tag:      ${atividade.tag}`
-    atividade.tparada = `Tipo de parada: ${atividade.tparada}`
-    atividade.desc = `Descrição: ${atividade.desc}`
-    atividade.acao = `Ação:      ${atividade.acao}`
+    atividade.osnumber = `<strong>Numero OS:</strong>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        ${atividade.osnumber}`
+
+    atividade.machine = `<strong>Máquina:</strong>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        ${atividade.machine}`
+
+    atividade.tag = `<strong>Tag:</strong>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        ${atividade.tag}`
+    atividade.tparada = `<strong>Tipo de parada:</strong> 
+        ${atividade.tparada}`
+    atividade.desc = `<strong>Descrição:</strong>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        ${atividade.desc}`
+    atividade.acao = `<strong>Ação:</strong> 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        ${atividade.acao}`
     let i = new Date(atividade.inicio).toUTCString();
-    atividade.inicio = `Inicio: ${i}`
+    atividade.inicio = `<strong>Inicio:</strong> 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        ${i}`
     let t = new Date(atividade.termino).toUTCString();
-    atividade.termino = `Termino:      ${t}`
-    atividade.taxa = `Duração:      ${atividade.taxa}`
-    atividade.mat = `Material utilizado:      ${atividade.mat}`
+    atividade.termino = `<strong>Termino:</strong>    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        ${t}`
+    atividade.taxa = `<strong>Duração:  </strong>    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        ${atividade.taxa}`
+    atividade.mat = `<strong>Insumo:</strong>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        ${atividade.mat}<br>`
 
 
 }
@@ -64,51 +85,43 @@ function adicionar() {
     mascara(report[x - 1])
 
 
-    let test = [
-        $('<p>').append(`${report[x-1].osnumber}`),
-        $('<p>').append(`${report[x-1].machine}`),
-        $('<p>').append(`${report[x-1].tag}`),
-        $('<p>').append(`${report[x-1].tparada}`),
-        $('<p>').append(`${report[x-1].desc}`),
-        $('<p>').append(`${report[x-1].acao}`),
-        $('<p>').append(`${report[x-1].inicio}`),
-        $('<p>').append(`${report[x-1].termino}`),
-        $('<p>').append(`${report[x-1].taxa}`),
-        $('<p>').append(`${report[x-1].mat}`)
+    let itemadd = [
+        $('<p>').append(`${report[x - 1].osnumber}`),
+        $('<p>').append(`${report[x - 1].machine}`),
+        $('<p>').append(`${report[x - 1].tag}`),
+        $('<p>').append(`${report[x - 1].tparada}`),
+        $('<p>').append(`${report[x - 1].desc}`),
+        $('<p>').append(`${report[x - 1].acao}`),
+        $('<p>').append(`${report[x - 1].inicio}`),
+        $('<p>').append(`${report[x - 1].termino}`),
+        $('<p>').append(`${report[x - 1].taxa}`),
+        $('<p>').append(`${report[x - 1].mat}`),
+        $('<p>').append(`____________________`),
+
     ]
 
-    $('#conteudo').append(test)
-    
-    // console.log(test)
-    
+    $('#conteudo').append(itemadd)
+
+    // console.log(itemadd)
+
 }
 
 
-function copiar(element) {
-        // var selection = window.getSelection(), //Get the window selection
-        //     selectData = document.createRange(); //Create a range
+function copiar() {
+
+    var sel, range;
+    var el = document.getElementById('conteudo'); //get element id
+    if (window.getSelection && document.createRange) { //Browser compatibility
+        sel = window.getSelection();
+        if (sel.toString() == '') { //no text selection
+            window.setTimeout(function () {
+                range = document.createRange(); //range object
+                range.selectNodeContents(el); //sets Range
+                sel.removeAllRanges(); //remove all ranges from selection
+                sel.addRange(range);//add Range to a Selection.
+            }, 1);
+        }
+    } 
     
-        //     selection.removeAllRanges();  //Clear any currently selected text.
-        //     selectData.selectNodeContents(element); //Add the desired element to the range you want to select.
-        //     selection.addRange(selectData); //Highlight the element (this is the same as dragging your cursor over an element)
-        //     var copyResult = document.execCommand("copy");  //Execute the copy.
-    
-        //     if(copyResult) //was the copy successful?
-        //         selection.removeAllRanges(); //Clear the highlight.
-        //     else
-        //         alert("Your browser does not support clipboard commands, press ctrl+c");
-    
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val($(element).text()).select();
     document.execCommand("copy");
-    $temp.remove();
-
-    // textocopiado = $('#conteudo')
-    
-    // textocopiado.select();
-
-    // document.execCommand('copy');
-    
-    // console.log(textocopiado);
-}   
+}
