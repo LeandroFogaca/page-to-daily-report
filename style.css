@@ -1,0 +1,25 @@
+body {
+    font-size: medium;
+
+}
+
+html{
+    zoom: 0.8;
+}
+
+#button{
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    align-self: center;
+}
+
+.top{
+    height: 150px;
+    padding-top: 30px;
+}
+
+p{
+    margin-bottom: 5px;
+
+}
