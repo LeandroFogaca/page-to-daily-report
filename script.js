@@ -3,9 +3,12 @@ var x = 0  //contador de cliques
 
 var textocopiado
 
+var horas = 0
+
+
 
 function Atividades(os, maq, tag, tparada, desc, acao, mat, inicio, termino) {
-
+    
     this.osnumber = os;
     this.machine = maq;
     this.tag = tag;
@@ -20,51 +23,54 @@ function Atividades(os, maq, tag, tparada, desc, acao, mat, inicio, termino) {
 
 
 function mascara(atividade) {
-
+    
     atividade.osnumber = `<strong>Numero OS:</strong>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        ${atividade.osnumber}`
-
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    ${atividade.osnumber}`
+    
     atividade.machine = `<strong>Máquina:</strong>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        ${atividade.machine}`
-
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    ${atividade.machine}`
+    
     atividade.tag = `<strong>Tag:</strong>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        ${atividade.tag}`
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    ${atividade.tag}`
     atividade.tparada = `<strong>Tipo de parada:</strong> 
-        ${atividade.tparada}`
+    ${atividade.tparada}`
     atividade.desc = `<strong>Descrição:</strong>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        ${atividade.desc}`
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    ${atividade.desc}`
     atividade.acao = `<strong>Ação:</strong> 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        ${atividade.acao}`
+    ${atividade.acao}`
     let i = new Date(atividade.inicio).toUTCString();
     atividade.inicio = `<strong>Inicio:</strong> 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        ${i}`
+    ${i}`
     let t = new Date(atividade.termino).toUTCString();
     atividade.termino = `<strong>Termino:</strong>    
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        ${t}`
+    ${t}`
     atividade.taxa = `<strong>Duração:  </strong>    
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        ${atividade.taxa}`
+    ${atividade.taxa}`
     atividade.mat = `<strong>Insumo:</strong>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        ${atividade.mat}<br>`
-
-
+    ${atividade.mat}<br>`
+    
+    
 }
 
 
 
+
+
+
 function adicionar() {
-
+    
     x += 1
-
-
+    
+    
     let os = document.getElementById("osnumber").value
     let maq = document.getElementById("machine").value
     let tag = document.getElementById("tag").value
@@ -74,17 +80,21 @@ function adicionar() {
     let mat = document.getElementById("mat").value
     let inicio = document.getElementById("inicio").value
     let termino = document.getElementById("termino").value
-
+    
     eval('var item' + x + '= new Atividades(os, maq, tag, tparada, desc, acao, mat, inicio, termino);');
-
-
+    
+    
     report.push(eval('item' + x))
-
-    console.log(report)
-
+    
+    let tonumber = eval('item' + x +'.taxa')
+    
+    horas += Number(tonumber)
+    // console.log(horas)
+    $('#hrs').text(`${horas} horas`)
+    
     mascara(report[x - 1])
-
-
+    
+    
     let itemadd = [
         $('<p>').append(`${report[x - 1].osnumber}`),
         $('<p>').append(`${report[x - 1].machine}`),
@@ -97,18 +107,19 @@ function adicionar() {
         $('<p>').append(`${report[x - 1].taxa}`),
         $('<p>').append(`${report[x - 1].mat}`),
         $('<p>').append(`____________________`),
-
+        
     ]
-
+    
     $('#conteudo').append(itemadd)
-
-    // console.log(itemadd)
-
+    
+    
+    
 }
 
 
-function copiar() {
 
+function copiar() {
+    
     var sel, range;
     var el = document.getElementById('conteudo'); //get element id
     if (window.getSelection && document.createRange) { //Browser compatibility

@@ -16,63 +16,60 @@
 </head>
 
 <body>
-
-<div class="container">
-    <div class="row top">
-        <div class="col-sm-9">
-            <h1>Relatório de turno</h1>
-        </div>
-        <div class="col-sm-3">
-
-            <p>Total de Horas:</p>
-
-        </div>
-
-    </div>
-    
-</div>
-
-
-
     <div class="container-fluid">
+
+        <div class="row top">
+            <div class="col-sm-6">
+                <h1>Relatório de turno</h1>
+            </div>
+            <div class="col-sm-6">
+                <div class="inline">
+                    <p>Total de Horas:</p>
+                </div>
+                <div class="inline">
+                    <p id="hrs"></p>
+                </div>
+
+
+            </div>
+
+        </div>
         <div class="row">
-            <div class="col-sm shadow-sm p-3 mb-5 bg-white rounded">
+            <div class="col-sm-5 shadow-sm p-3 mb-5 bg-white rounded">
                 <form onsubmit=event.preventDefault()>
-
-
                     <div class="form-group row">
                         <div class="col-sm-4">
                             <label for="osnumber">Ordem de serviço:</label>
                         </div>
-                        <div class="col-5">
+                        <div class="col-sm-6">
                             <input type="text" class="form-control" id="osnumber" placeholder="texto">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-sm-4">
-                            <label for="machine">Máquina</label>
+                            <label for="machine">Máquina:</label>
                         </div>
-                        <div class="col-5">
+                        <div class="col-sm-6">
                             <input type="text" class="form-control" id="machine" placeholder="texto">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-sm-4">
-                            <label for="tag">Tag - causa</label>
+                            <label for="tag">Tag - causa:</label>
                         </div>
-                        <div class="col-5">
+                        <div class="col-sm-6">
                             <input type="text" class="form-control" id="tag" placeholder="texto">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-sm-4">
-                            <label for="tparada">Tipo de parada</label>
+                            <label for="tparada">Tipo de parada:</label>
                         </div>
 
-                        <div class="col-5">
+                        <div class="col-sm-6">
                             <select class="form-control" id="tparada">
                                 <option>SIM - Manutenção</option>
                                 <option>SIM - Operacional</option>
@@ -85,20 +82,20 @@
 
                     <div class="form-group row">
                         <div class="col-sm-4">
-                            <label for="inicio" class="col-2 col-form-label">Início</label>
+                            <label for="inicio">Início:</label>
                         </div>
-                        <div class="col-5">
-                            <input class="form-control" type="datetime-local" value="2020-01-01T13:45:00" id="inicio">
+                        <div class="col-sm-6">
+                            <input class="form-control" type="datetime-local" value="2020-08-01T12:00:00" id="inicio">
                         </div>
                     </div>
 
                     <div class="form-group row">
 
                         <div class="col-sm-4">
-                            <label for="termino" class="col-2 col-form-label">Termino</label>
+                            <label for="termino">Termino:</label>
                         </div>
-                        <div class="col-5">
-                            <input class="form-control" type="datetime-local" value="2020-01-01T13:45:00" id="termino">
+                        <div class="col-sm-6">
+                            <input class="form-control" type="datetime-local" value="2020-08-01T12:00:00" id="termino">
                         </div>
                     </div>
 
@@ -108,7 +105,7 @@
                             <label for="description">Descrição da falha</label>
                         </div>
 
-                        <div class="col-9">
+                        <div class="col-sm-10">
                             <textarea class="form-control" id="description" rows="3"></textarea>
 
                         </div>
@@ -119,33 +116,28 @@
                         <div class="col-sm-4">
                             <label for="acao">Ação realizada</label>
                         </div>
-                        <div class="col-9">
+                        <div class="col-sm-10">
                             <textarea class="form-control" id="acao" rows="3"></textarea>
 
                         </div>
                     </div>
                     <div class="form-group row">
-                        
+
                         <div class="col-sm-4">
-                            <label for="mat">Material utilizado</label>
+                            <label for="mat">Material utilizado:</label>
                         </div>
-                        <div class="col-5">
+                        <div class="col-sm-6">
                             <input type="text" class="form-control" id="mat" placeholder="texto">
                         </div>
                     </div>
-                                        
-                    <div class="row align-items-center">
-                        <div class="col text-center">
-                            <button id="add" onclick="adicionar()">Adicionar</button>
-                        </div>
-                    </div>
-
                 </form>
             </div>
-            <div class="col-sm shadow-sm p-3 mb-5 bg-white rounded" id="conteudo">
-            </div>
-            <div class="col-1">
+            <div class="col-sm-1 shadow-sm p-3 mb-5 bg-white rounded" id="divbtn">
+                <button id="add" onclick="adicionar()">Adicionar</button>
+                <br></br>
                 <button id="copy" onclick="copiar()">Copiar</button>
+            </div>
+            <div class="col-sm-6 shadow-sm p-3 mb-5 bg-white rounded" id="conteudo">
             </div>
         </div>
     </div>
