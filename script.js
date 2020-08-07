@@ -43,11 +43,11 @@ function mascara(atividade) {
     atividade.acao = `<strong>Ação:</strong> 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     ${atividade.acao}`
-    let i = new Date(atividade.inicio).toUTCString();
+    let i = new Date(atividade.inicio).toLocaleString();
     atividade.inicio = `<strong>Inicio:</strong> 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     ${i}`
-    let t = new Date(atividade.termino).toUTCString();
+    let t = new Date(atividade.termino).toLocaleString();
     atividade.termino = `<strong>Termino:</strong>    
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     ${t}`
