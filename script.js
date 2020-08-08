@@ -5,7 +5,17 @@ var textocopiado
 
 var horas = 0
 
+const input = document.querySelectorAll('.form-control')
 
+function activity(...e){
+    let dados = []
+    for( i=0; i < e.length;i++){
+
+        dados.push(e[i].value)
+
+    }
+    return dados
+}
 
 function Atividades(os, maq, tag, tparada, desc, acao, mat, inicio, termino) {
     
@@ -66,21 +76,24 @@ function mascara(atividade) {
 
 
 
+
+
+
 function adicionar() {
     
     x += 1
+
+    let os = input[0].value
+    let maq = input[1].value
+    let tag = input[2].value
+    let tparada = input[3].value
+    let inicio = input[4].value
+    let termino = input[5].value
+    let desc = input[6].value
+    let acao = input[7].value
+    let mat = input[8].value
     
-    
-    let os = document.getElementById("osnumber").value
-    let maq = document.getElementById("machine").value
-    let tag = document.getElementById("tag").value
-    let tparada = document.getElementById("tparada").value
-    let desc = document.getElementById("description").value
-    let acao = document.getElementById("acao").value
-    let mat = document.getElementById("mat").value
-    let inicio = document.getElementById("inicio").value
-    let termino = document.getElementById("termino").value
-    
+
     eval('var item' + x + '= new Atividades(os, maq, tag, tparada, desc, acao, mat, inicio, termino);');
     
     
