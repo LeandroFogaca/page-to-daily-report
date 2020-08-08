@@ -7,18 +7,24 @@ var horas = 0
 
 const input = document.querySelectorAll('.form-control')
 
-function activity(...e){
+const labels = ['Número OS:', 'Máquina']
+
+function dataofactivity(...e) {
     let dados = []
-    for( i=0; i < e.length;i++){
+    let hi = Date.parse(e[4].value)
+    let ht = Date.parse(e[5].value)
+    let horas = ht - hi
+
+    for (i = 0; i < e.length; i++) {
 
         dados.push(e[i].value)
-
     }
+    dados.push(horas)
     return dados
 }
 
 function Atividades(os, maq, tag, tparada, desc, acao, mat, inicio, termino) {
-    
+
     this.osnumber = os;
     this.machine = maq;
     this.tag = tag;
@@ -32,16 +38,26 @@ function Atividades(os, maq, tag, tparada, desc, acao, mat, inicio, termino) {
 }
 
 
+
+function mask(...labels){
+
+
+
+
+
+}
+
+
 function mascara(atividade) {
-    
+
     atividade.osnumber = `<strong>Numero OS:</strong>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     ${atividade.osnumber}`
-    
+
     atividade.machine = `<strong>Máquina:</strong>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
     ${atividade.machine}`
-    
+
     atividade.tag = `<strong>Tag:</strong>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     ${atividade.tag}`
@@ -67,20 +83,13 @@ function mascara(atividade) {
     atividade.mat = `<strong>Insumo:</strong>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     ${atividade.mat}<br>`
-    
-    
+
+
 }
 
 
-
-
-
-
-
-
-
 function adicionar() {
-    
+
     x += 1
 
     let os = input[0].value
@@ -92,22 +101,22 @@ function adicionar() {
     let desc = input[6].value
     let acao = input[7].value
     let mat = input[8].value
-    
+
 
     eval('var item' + x + '= new Atividades(os, maq, tag, tparada, desc, acao, mat, inicio, termino);');
-    
-    
+
+
     report.push(eval('item' + x))
-    
-    let tonumber = eval('item' + x +'.taxa')
-    
+
+    let tonumber = eval('item' + x + '.taxa')
+
     horas += Number(tonumber)
     // console.log(horas)
     $('#hrs').text(`${horas} horas`)
-    
+
     mascara(report[x - 1])
-    
-    
+
+
     let itemadd = [
         $('<p>').append(`${report[x - 1].osnumber}`),
         $('<p>').append(`${report[x - 1].machine}`),
@@ -120,19 +129,19 @@ function adicionar() {
         $('<p>').append(`${report[x - 1].taxa}`),
         $('<p>').append(`${report[x - 1].mat}`),
         $('<p>').append(`____________________`),
-        
+
     ]
-    
+
     $('#conteudo').append(itemadd)
-    
-    
-    
+
+
+
 }
 
 
 
 function copiar() {
-    
+
     var sel, range;
     var el = document.getElementById('conteudo'); //get element id
     if (window.getSelection && document.createRange) { //Browser compatibility
@@ -145,7 +154,7 @@ function copiar() {
                 sel.addRange(range);//add Range to a Selection.
             }, 1);
         }
-    } 
-    
+    }
+
     document.execCommand("copy");
 }
