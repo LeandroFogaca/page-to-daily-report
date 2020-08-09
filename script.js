@@ -7,22 +7,6 @@ var horas = 0
 
 const input = document.querySelectorAll('.form-control')
 
-const labels = ['Número OS:', 'Máquina']
-
-function dataofactivity(...e) {
-    let dados = []
-    let hi = Date.parse(e[4].value)
-    let ht = Date.parse(e[5].value)
-    let horas = ht - hi
-
-    for (i = 0; i < e.length; i++) {
-
-        dados.push(e[i].value)
-    }
-    dados.push(horas)
-    return dados
-}
-
 function Atividades(os, maq, tag, tparada, desc, acao, mat, inicio, termino) {
 
     this.osnumber = os;
@@ -36,17 +20,6 @@ function Atividades(os, maq, tag, tparada, desc, acao, mat, inicio, termino) {
     this.termino = termino;
     this.taxa = ((Date.parse(this.termino) - Date.parse(this.inicio)) / 1000 / 60 / 60).toFixed(2)
 }
-
-
-
-function mask(...labels){
-
-
-
-
-
-}
-
 
 function mascara(atividade) {
 
